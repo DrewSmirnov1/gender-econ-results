@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Гендерная экономика — Результаты экзамена</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="data.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f7fa;
+    color: #1a1a2e;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: #16213e;
+  }
+  .subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+  .charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .chart-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .chart-card canvas { width: 100% !important; }
+
+  .lookup-section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+  }
+  .lookup-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  .input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .input-row input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .input-row input:focus { border-color: #4361ee; }
+  .input-row button {
+    padding: 10px 24px;
+    background: #4361ee;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .input-row button:hover { background: #3a56d4; }
+
+  .error-msg {
+    color: #e63946;
+    font-weight: 500;
+    padding: 10px;
+    display: none;
+  }
+
+  .results-panel {
+    display: none;
+    margin-top: 16px;
+  }
+  .results-panel h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .score-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  .score-table th, .score-table td {
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  .score-table th {
+    background: #f0f3ff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #444;
+  }
+  .score-table td {
+    font-size: 1.05rem;
+  }
+  .pass-yes { color: #2d6a4f; font-weight: 700; }
+  .pass-no { color: #e63946; font-weight: 700; }
+
+  .comments-section { margin-top: 16px; }
+  .comment-block {
+    background: #f8f9fc;
+    border-left: 3px solid #4361ee;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 10px;
+  }
+  .comment-block strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #4361ee;
+    font-size: 0.85rem;
+  }
+  .comment-block p {
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    h1 { font-size: 1.3rem; }
+    .input-row { flex-direction: column; }
+    .input-row button { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Гендерная экономика — Результаты экзамена</h1>
+<p class="subtitle">Распределение баллов по всем работам (N=23)</p>
+
+<div class="charts-grid">
+  <div class="chart-card"><canvas id="chart-q1"></canvas></div>
+  <div class="chart-card"><canvas id="chart-q2a"></canvas></div>
+  <div class="chart-card"><canvas id="chart-q2b"></canvas></div>
+  <div class="chart-card"><canvas id="chart-q3"></canvas></div>
+  <div class="chart-card"><canvas id="chart-total"></canvas></div>
+</div>
+
+<div class="lookup-section">
+  <h2>Ваш результат</h2>
+  <div class="input-row">
+    <input type="text" id="code-input" placeholder="Введите ваш 7-значный код" maxlength="7" inputmode="numeric" autocomplete="off">
+    <button onclick="lookup()">Показать</button>
+  </div>
+  <div class="error-msg" id="error-msg">Код не найден. Проверьте правильность ввода.</div>
+
+  <div class="results-panel" id="results-panel">
+    <h3>Ваши баллы</h3>
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th>Q1 (/20)</th>
+          <th>Q2A (/15)</th>
+          <th>Q2B (/15)</th>
+          <th>Q3 (/50)</th>
+          <th>Итого (/100)</th>
+          <th>Зачёт</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="r-q1"></td>
+          <td id="r-q2a"></td>
+          <td id="r-q2b"></td>
+          <td id="r-q3"></td>
+          <td id="r-total"></td>
+          <td id="r-pass"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="comments-section" id="comments-section"></div>
+  </div>
+</div>
+
+<script>
+// ---- Chart rendering ----
+const CHART_CONFIGS = [
+  { id: 'chart-q1',    key: 'q1',    label: 'Q1', max: 20,  step: 2 },
+  { id: 'chart-q2a',   key: 'q2a',   label: 'Q2A', max: 15, step: 2 },
+  { id: 'chart-q2b',   key: 'q2b',   label: 'Q2B', max: 15, step: 2 },
+  { id: 'chart-q3',    key: 'q3',    label: 'Q3', max: 50,  step: 5 },
+  { id: 'chart-total', key: 'total', label: 'Итого', max: 100, step: 10 },
+];
+
+const chartInstances = {};
+
+function makeBins(scores, max, step) {
+  const bins = [];
+  const labels = [];
+  for (let lo = 0; lo <= max; lo += step) {
+    const hi = Math.min(lo + step - 1, max);
+    labels.push(lo === hi ? `${lo}` : `${lo}–${hi}`);
+    bins.push(scores.filter(s => s >= lo && s <= hi).length);
+  }
+  return { labels, bins };
+}
+
+function createChart(cfg, highlightScore) {
+  const scores = DISTRIBUTIONS[cfg.key];
+  const { labels, bins } = makeBins(scores, cfg.max, cfg.step);
+
+  // Determine which bin the student's score falls into
+  let highlightIdx = -1;
+  if (highlightScore != null) {
+    highlightIdx = Math.min(Math.floor(highlightScore / cfg.step), labels.length - 1);
+  }
+
+  const bgColors = bins.map((_, i) =>
+    i === highlightIdx ? 'rgba(231, 76, 60, 0.85)' : 'rgba(67, 97, 238, 0.6)'
+  );
+  const borderColors = bins.map((_, i) =>
+    i === highlightIdx ? '#c0392b' : 'rgba(67, 97, 238, 0.9)'
+  );
+
+  const ctx = document.getElementById(cfg.id).getContext('2d');
+
+  if (chartInstances[cfg.id]) {
+    chartInstances[cfg.id].destroy();
+  }
+
+  chartInstances[cfg.id] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Количество работ',
+        data: bins,
+        backgroundColor: bgColors,
+        borderColor: borderColors,
+        borderWidth: 1,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: cfg.label + ` (макс. ${cfg.max})`, font: { size: 14 } },
+        legend: { display: false },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { stepSize: 1, precision: 0 },
+          title: { display: false },
+        },
+        x: {
+          title: { display: true, text: 'Баллы' },
+        }
+      }
+    }
+  });
+}
+
+// Initial render (no highlight)
+CHART_CONFIGS.forEach(cfg => createChart(cfg, null));
+
+// ---- Lookup logic ----
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function lookup() {
+  const code = document.getElementById('code-input').value.trim();
+  const errorEl = document.getElementById('error-msg');
+  const panelEl = document.getElementById('results-panel');
+
+  errorEl.style.display = 'none';
+  panelEl.style.display = 'none';
+
+  if (!code || code.length !== 7 || !/^\d{7}$/.test(code)) {
+    errorEl.textContent = 'Введите 7-значный числовой код.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  const hash = await sha256(code);
+  const data = RESULTS[hash];
+
+  if (!data) {
+    errorEl.textContent = 'Код не найден. Проверьте правильность ввода.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  // Fill score table
+  document.getElementById('r-q1').textContent = data.q1;
+  document.getElementById('r-q2a').textContent = data.q2a;
+  document.getElementById('r-q2b').textContent = data.q2b;
+  document.getElementById('r-q3').textContent = data.q3;
+  document.getElementById('r-total').textContent = data.total;
+
+  const passEl = document.getElementById('r-pass');
+  passEl.textContent = data.pass;
+  passEl.className = data.pass === 'Да' ? 'pass-yes' : 'pass-no';
+
+  // Fill comments
+  const commSection = document.getElementById('comments-section');
+  commSection.innerHTML = '';
+
+  const comments = [
+    { label: 'Комментарий Q1 (подвопросы: ' + data.q1_sub + ')', text: data.comm_q1 },
+    { label: 'Комментарий Q2', text: data.comm_q2 },
+    { label: 'Комментарий Q3', text: data.comm_q3 },
+  ];
+  comments.forEach(c => {
+    if (!c.text) return;
+    const div = document.createElement('div');
+    div.className = 'comment-block';
+    div.innerHTML = `<strong>${c.label}</strong><p>${escapeHtml(c.text)}</p>`;
+    commSection.appendChild(div);
+  });
+
+  panelEl.style.display = 'block';
+
+  // Re-render charts with highlight
+  CHART_CONFIGS.forEach(cfg => createChart(cfg, data[cfg.key]));
+
+  // Scroll to results
+  panelEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// Allow Enter key to submit
+document.getElementById('code-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') lookup();
+});
+</script>
+
+</body>
+</html>
