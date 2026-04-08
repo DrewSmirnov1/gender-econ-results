@@ -56,6 +56,7 @@
 <div class="charts-grid">
   <div class="chart-card"><canvas id="chart-fg"></canvas></div>
   <div class="chart-card"><canvas id="chart-final"></canvas></div>
+  <div class="chart-card"><canvas id="chart-grade"></canvas></div>
 </div>
 
 <div class="lookup-section">
@@ -72,12 +73,12 @@
         <tr>
           <th class="section-header" colspan="6">Экзамен</th>
           <th class="section-header" colspan="4">Курсовая работа</th>
-          <th class="section-header" colspan="2">Итого</th>
+          <th class="section-header" colspan="3">Итого</th>
         </tr>
         <tr>
           <th>Q1 (/20)</th><th>Q2A (/15)</th><th>Q2B (/15)</th><th>Q3 (/50)</th><th>Балл</th><th>+10</th>
           <th>Презентации</th><th>Проект 1</th><th>Проект 2</th><th>Активность</th>
-          <th>Оценка</th><th>Final</th>
+          <th>Оценка</th><th>Final</th><th>1-10</th>
         </tr>
       </thead>
       <tbody>
@@ -85,7 +86,7 @@
           <td id="r-q1"></td><td id="r-q2a"></td><td id="r-q2b"></td><td id="r-q3"></td>
           <td id="r-ball"></td><td id="r-exam"></td>
           <td id="r-pres"></td><td id="r-p1"></td><td id="r-p2"></td><td id="r-act"></td>
-          <td id="r-fg"></td><td id="r-final" class="final-cell"></td>
+          <td id="r-fg"></td><td id="r-final"></td><td id="r-grade" class="final-cell"></td>
         </tr>
       </tbody>
     </table>
@@ -105,6 +106,7 @@ const CHART_CONFIGS = [
   { id: 'chart-act', key: 'act', label: 'Активность', max: 10, step: 1 },
   { id: 'chart-fg', key: 'fg', label: 'Оценка (без активности)', max: 100, step: 5 },
   { id: 'chart-final', key: 'final', label: 'Final', max: 100, step: 5 },
+  { id: 'chart-grade', key: 'grade', label: 'Оценка (1-10)', max: 10, step: 1 },
 ];
 const chartInstances = {};
 function makeBins(scores, max, step) {
@@ -143,7 +145,7 @@ async function lookup() {
   if (!/^\d{7}$/.test(code)) { err.textContent = 'Введите 7-значный числовой код.'; err.style.display = 'block'; return; }
   const data = RESULTS[await sha256(code)];
   if (!data) { err.textContent = 'Код не найден.'; err.style.display = 'block'; return; }
-  ['q1','q2a','q2b','q3','ball','exam','pres','p1','p2','act','fg','final'].forEach(k =>
+  ['q1','q2a','q2b','q3','ball','exam','pres','p1','p2','act','fg','final','grade'].forEach(k =>
     document.getElementById('r-'+k).textContent = data[k]
   );
   panel.style.display = 'block';
