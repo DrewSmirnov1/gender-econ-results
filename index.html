@@ -37,12 +37,25 @@
 <h1>Гендерная экономика — Результаты</h1>
 <p class="subtitle">Распределение баллов (N=23). Экзамен = сумма + 10 (нормализация). Итого = 0.1×Презентации + 0.25×Проект1 + 0.25×Проект2 + 0.4×Экзамен + Активность</p>
 
+<h2 style="margin:24px 0 12px;color:#16213e;">Экзамен</h2>
 <div class="charts-grid">
   <div class="chart-card"><canvas id="chart-q1"></canvas></div>
   <div class="chart-card"><canvas id="chart-q2a"></canvas></div>
   <div class="chart-card"><canvas id="chart-q2b"></canvas></div>
   <div class="chart-card"><canvas id="chart-q3"></canvas></div>
-  <div class="chart-card"><canvas id="chart-total"></canvas></div>
+  <div class="chart-card"><canvas id="chart-exam"></canvas></div>
+</div>
+<h2 style="margin:24px 0 12px;color:#16213e;">Курсовая работа</h2>
+<div class="charts-grid">
+  <div class="chart-card"><canvas id="chart-pres"></canvas></div>
+  <div class="chart-card"><canvas id="chart-p1"></canvas></div>
+  <div class="chart-card"><canvas id="chart-p2"></canvas></div>
+  <div class="chart-card"><canvas id="chart-act"></canvas></div>
+</div>
+<h2 style="margin:24px 0 12px;color:#16213e;">Итоговая оценка</h2>
+<div class="charts-grid">
+  <div class="chart-card"><canvas id="chart-fg"></canvas></div>
+  <div class="chart-card"><canvas id="chart-final"></canvas></div>
 </div>
 
 <div class="lookup-section">
@@ -85,7 +98,13 @@ const CHART_CONFIGS = [
   { id: 'chart-q2a', key: 'q2a', label: 'Q2A', max: 15, step: 2 },
   { id: 'chart-q2b', key: 'q2b', label: 'Q2B', max: 15, step: 2 },
   { id: 'chart-q3', key: 'q3', label: 'Q3', max: 50, step: 5 },
-  { id: 'chart-total', key: 'total', label: 'Экзамен (+10)', max: 100, step: 10 },
+  { id: 'chart-exam', key: 'exam', label: 'Экзамен (+10)', max: 100, step: 10 },
+  { id: 'chart-pres', key: 'pres', label: 'Презентации', max: 100, step: 20 },
+  { id: 'chart-p1', key: 'p1', label: 'Проект 1', max: 100, step: 10 },
+  { id: 'chart-p2', key: 'p2', label: 'Проект 2', max: 100, step: 10 },
+  { id: 'chart-act', key: 'act', label: 'Активность', max: 10, step: 1 },
+  { id: 'chart-fg', key: 'fg', label: 'Оценка (без активности)', max: 100, step: 5 },
+  { id: 'chart-final', key: 'final', label: 'Final', max: 100, step: 5 },
 ];
 const chartInstances = {};
 function makeBins(scores, max, step) {
