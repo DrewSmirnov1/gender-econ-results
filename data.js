@@ -1,280 +1,165 @@
 const RESULTS = {
-  "fac0c65b04e48c9007c5086c776e666c0b6d3aad54ef8a6bdfe5b0dcfdcce47c": {
-    "q1": 16,
-    "q2a": 12,
-    "q2b": 11,
-    "q3": 35,
-    "total": 91,
-    "pass": "Да",
-    "q1_sub": "A+B",
-    "comm_q1": "Q1A (8/10): VNR/ESG различие, что показывает/скрывает, комплементарность. Q1B (8/10): Oaxaca-Blinder, between/within-firm, эндогенные контроли.",
-    "comm_q2": "Q2A (12/15): Домохозяйство, comparative advantage, эффективность. Q2B (11/15): Власть/торг, нормы, дискриминация, неоплачиваемый труд, институты.",
-    "comm_q3": "Q3 (35/50): Социализация, стереотипы, институциональные барьеры, gender-blind vs neutral, квоты. Не хватает систематичности и глубины."
-  },
-  "de6167d54852f5308aed131916cbeb1de024ebf6dc190e138fb2ca8176810d1a": {
-    "q1": 18,
-    "q2a": 12,
-    "q2b": 9,
-    "q3": 35,
-    "total": 91,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (9/10): Все ключевые элементы — метрики, эндогенные контроли, selection bias. Q1C (9/10): 5+ каналов, mother penalty 20%, GDP 26%/28 трлн.",
-    "comm_q2": "Q2A (12/15): Comparative advantage с формулой. Q2B (9/15): Нормы, неоплачиваемый труд, динамика. Нет bargaining, child penalty.",
-    "comm_q3": "Q3 (35/50): Taste/statistical дискриминация, Boy's Club, Why No Great Women Artists 1975. Gender-blind≠neutral неявно."
-  },
-  "ef979271b01b5968bc07e60c5e5fbe78415b154bb28b1b99005c15cfbd20e299": {
-    "q1": 17,
-    "q2a": 11,
-    "q2b": 9,
-    "q3": 36,
-    "total": 90,
-    "pass": "Да",
-    "q1_sub": "C+B",
-    "comm_q1": "Q1C (9/10): Bowles, Babcock, McGinn 2005, misperceived norms (Bursztyn). Q1B (8/10): Метрики, состав, эндогенные контроли.",
-    "comm_q2": "Q2A (11/15): Специализация, comparative advantage. Q2B (9/15): Нормы, неоплачиваемый труд (13% ВВП), динамика.",
-    "comm_q3": "Q3 (36/50): Множество механизмов и ссылок. Moss-Racusin, Besley, Perez-T. Нет normative/positive явно."
-  },
-  "7ac13e71f6a83ba743c18b1a38dc5da7680985cd9d0ec151adda41df8cddb6a6": {
-    "q1": 17,
-    "q2a": 12,
-    "q2b": 11,
-    "q3": 33,
-    "total": 90,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (8/10): 30% raw vs 5% adjusted. Q1C (9/10): Саудовская Аравия, Nepotism & Sexism, Goldin & Rouse.",
-    "comm_q2": "Q2A (12/15): Формула специализации. Q2B (11/15): Нормы, рациональность (Phelps, Arrow), динамика (Goldin & Katz).",
-    "comm_q3": "Q3 (33/50): Турнирная модель, Old Boys' Club, McKinsey. Нет child penalty, неоплачиваемого труда."
-  },
-  "c37d5d081e1d27876cc5e3b55e12de5bd43b88204ebe1c9b2d8a29410a2e53c2": {
-    "q1": 16,
-    "q2a": 11,
-    "q2b": 11,
-    "q3": 35,
-    "total": 90,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (8/10): Формула гэпа, метрики, part-time, домашний труд. Q1C (8/10): Misperceived norms (арабские страны), STEM, GDP losses.",
-    "comm_q2": "Q2A (11/15): Семья как единица, W_m > MP_h. Q2B (11/15): Нормы, bargaining, glass ceiling (Bertrand & Hallock), child penalty, Gneezy & Niederle, Bowles.",
-    "comm_q3": "Q3 (35/50): 4 механизма: сортировка (Card 2016), bias в HR, карьерные траектории, оценка компетентности. Gender-blind≠neutral явно. Мало policy measures."
-  },
-  "e8d02ea19bb636e14021d6b930c8f50518e6e78b993df85a8e9adf60e1418815": {
-    "q1": 17,
-    "q2a": 12,
-    "q2b": 11,
-    "q3": 33,
-    "total": 90,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (9/10): Niederle & Vesterlund (75% vs 43%), метрики, эндогенные контроли. Q1C (8/10): Bursztyn (Сауд. Аравия), misperceived norms.",
-    "comm_q2": "Q2A (12/15): КПВ, comparative advantage. Q2B (11/15): Нормы, неоплачиваемый труд, гибкость ролей, рынок труда.",
-    "comm_q3": "Q3 (33/50): McKinsey $12 трлн, Becker discrimination, diversity. Скорее business case, чем академический анализ."
-  },
-  "eb4a428282f04a328b7381b7c2a1c7a9034deb61fd6103d36675f9bb0b68f11b": {
-    "q1": 14,
-    "q2a": 11,
-    "q2b": 11,
-    "q3": 35,
-    "total": 88,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (6/10): Метрики, состав выборки, но дезорганизовано. Q1C (8/10): Breda, Bursztyn (Сауд. Аравия), first/second-order beliefs.",
-    "comm_q2": "Q2A (11/15): Comparative advantage, wage differential. Q2B (11/15): Нормы, дискриминация, ресурсы, Old Boys' Club.",
-    "comm_q3": "Q3 (35/50): Сегрегация, child penalty (Скандинавия), дискриминация, квоты. Gender-blind≠neutral затронут."
-  },
-  "76b0d87f6c652c3330145c4d8a362586c08357e75c2b1a722067f578bcf33bc8": {
-    "q1": 16,
-    "q2a": 11,
-    "q2b": 10,
-    "q3": 33,
-    "total": 87,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (8/10): Unadjusted/adjusted gap, selection, эндогенные контроли. Q1C (8/10): Нормы как издержки, санкции, 3+ каналов.",
-    "comm_q2": "Q2A (11/15): Семья как юнит, неоплачиваемый труд не в ВВП. Q2B (10/15): Нормы, дискриминация, unpaid labor, Goldin & Katz.",
-    "comm_q3": "Q3 (33/50): Goldin & Rouse, Perez-Trujillo, Besley. Статистическая и taste-based дискриминация. Мало policy measures."
-  },
-  "ada10966e50affd20907b26975af76f50457c582fcb4a7f6d18d6eeaba093378": {
-    "q1": 14,
-    "q2a": 11,
-    "q2b": 8,
-    "q3": 35,
-    "total": 85,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (7/10): Bertrand & Hallock (30%→5%), метрики. Q1C (7/10): Babcock, Old Boy Club. Нет misperceived norms.",
-    "comm_q2": "Q2A (11/15): 2 агента, comparative advantage. Q2B (8/15): Описательные аргументы ('времена изменились').",
-    "comm_q3": "Q3 (35/50): Child penalty 20% (Kleven), Moss-Racusin, Goldin & Rouse (+25%), Crisis of Mediocre Man. Хорошие policy measures."
-  },
   "7a0175984f87c35ac385336379270f11606e1915f287b69686730ab5328b7ec0": {
-    "q1": 15,
-    "q2a": 11,
-    "q2b": 10,
-    "q3": 32,
-    "total": 85,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (7/10): Selection bias, метрики. Нет conditional vs raw gap. Q1C (6/10): Беккер, Эрроу, но каналы узкие.",
-    "comm_q2": "Q2A (11/15): Формализация с уравнениями. Нет нюанса эффективность≠справедливость. Q2B (10/15): Дискриминация, нетворкинг (Cullen & Perez-Truglia), кредиты.",
-    "comm_q3": "Q3 (32/50): Taste-based и statistical дискриминация, Швеция. Нет normative/positive, child penalty, эндогенности профессионализма."
-  },
-  "a11d269f80371e6a7744d51ac60581f8ccd6379610968757908fdf564ecf1b5a": {
-    "q1": 16,
-    "q2a": 10,
-    "q2b": 11,
-    "q3": 30,
-    "total": 84,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (7/10): Gap vs discrimination, within-position. Q1C (9/10): 4+ каналов: интернализация, давление, санкции, стат. дискриминация, HC underinvestment.",
-    "comm_q2": "Q2A (10/15): Comparative advantage, кратко. Q2B (11/15): Нормы, STEM стереотипы, unpaid labor, taste-based discrimination (Arrow). Ранее 0 — ответ ЕСТЬ.",
-    "comm_q3": "Q3 (30/50): Becker competition argument, Швеция, blind auditions. Узковато, нет gender-blind≠neutral."
-  },
-  "5db9e84fdd4897ca5ee3ac9efed12f5d26987933773083d23f7ebc9cb7dde502": {
-    "q1": 14,
-    "q2a": 11,
-    "q2b": 12,
-    "q3": 30,
-    "total": 84,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (7/10): Pay/opportunity/education gaps. Q1C (7/10): Институты, законы, ожидания, санкции.",
-    "comm_q2": "Q2A (11/15): Семья как фирма, дети как блага. Q2B (12/15): Власть/принятие решений, эндогенность преимуществ, институциональные барьеры. Контрацептивы.",
-    "comm_q3": "Q3 (30/50): Модель сигналов, Arrow/Phelps. Структура слабая, нет normative/positive, gender-blind≠neutral."
-  },
-  "75df682816042919215a0430e3ee5ceb0082a79a7fcbe260e960857f4666fc2f": {
-    "q1": 15,
-    "q2a": 10,
-    "q2b": 7,
-    "q3": 35,
-    "total": 84,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (7/10): Метрики, selection bias. Q1C (8/10): 3 канала (STEM, неоплачиваемый труд, участие).",
-    "comm_q2": "Q2A (10/15): Comparative advantage, формализация. Q2B (7/15): Нормы, роли, неоплачиваемый труд — кратко.",
-    "comm_q3": "Q3 (35/50): Black & Strahan, Phelps, Arrow, Cullen & Perez-Truglia. 5 мер политики. Сильное эссе."
-  },
-  "4ec72c2c899420ac8955cd8e6429079a64cff4d0dd4bbc7fa269b3e0aa791b50": {
-    "q1": 16,
-    "q2a": 11,
-    "q2b": 8,
-    "q3": 32,
-    "total": 84,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (8/10): Bertrand et al, метрики, Bowles, Exley. Q1C (8/10): Hoff & Pandey, Bursztyn (Сауд. Аравия), sanctions.",
-    "comm_q2": "Q2A (11/15): U=U(Ym+Yf,H), специализация. Q2B (8/15): Нормы, неоплачиваемый труд, фиксированные роли.",
-    "comm_q3": "Q3 (32/50): ESG/diversity, Ashenfelter, Moss-Racusin, Goldin blind auditions. Узкий фокус на фирмах."
-  },
-  "c95d44d0235bb35429a6d279ec99b539d4356da739fbcb28abe59d168b933e27": {
-    "q1": 14,
-    "q2a": 10,
-    "q2b": 9,
-    "q3": 32,
-    "total": 82,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (7/10): Bertrand & Hallock. Q1C (7/10): 5+ каналов, нет misperceived norms.",
-    "comm_q2": "Q2A (10/15): Семья как агент. Q2B (9/15): Goldin, Kleven & Landais 2019 (child penalty 20%), glass ceiling.",
-    "comm_q3": "Q3 (32/50): Becker 1957, Neumark, Crisis of Mediocre Man. Квоты. Нет normative/positive, сегрегации."
-  },
-  "fe78936127ec05c507213482e1784c5a30db3463d701ed7f4b4a3638d9e19a40": {
-    "q1": 16,
-    "q2a": 10,
-    "q2b": 9,
-    "q3": 30,
-    "total": 82,
-    "pass": "Да",
-    "q1_sub": "A+C",
-    "comm_q1": "Q1A (8/10): VNR/ESG определены. Q1C (8/10): Breda, Bursztyn, Kleven — хорошие ссылки, санкции.",
-    "comm_q2": "Q2A (10/15): Comparative advantage, историч./соц. причины. Q2B (9/15): Нормы, bargaining, unpaid labor, технологии.",
-    "comm_q3": "Q3 (30/50): ЭССЕ НАЙДЕНО (стр. 4-7). 4 механизма: diversity, taste/stat discrimination, motherhood penalty, нормы. Ранее 0 — ответ ЕСТЬ."
-  },
-  "23515ac189f39f40e103443f3b62bc975d7126a0a3a00804b03f76dad4fd1800": {
-    "q1": 16,
-    "q2a": 10,
-    "q2b": 9,
-    "q3": 28,
-    "total": 80,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1C (8/10): Bowles, санкции, профессиональная сегрегация. Q1B (8/10): Goldin, KSR (расхождение 4x), selection bias.",
-    "comm_q2": "Q2A (10/15): Семья как фирма. Q2B (9/15): Нормы, ожидания, традиционные семьи, домашний труд (Goldin).",
-    "comm_q3": "Q3 (28/50): Двойные стандарты, Corell, Moss-Racusin, Goldin. Короткое, мало policy measures."
+    "q1": 13, "q2a": 11, "q2b": 10, "q3": 32,
+    "ball": 68, "exam": 78,
+    "pres": 100, "p1": 100, "p2": 70, "act": 8,
+    "fg": 83.7, "final": 91.7,
+    "pass": "Да"
   },
   "59425a29a8be4a10f6d8651a5d31663df90bd3355dfa71c288929edf66b4c69b": {
-    "q1": 15,
-    "q2a": 10,
-    "q2b": 10,
-    "q3": 25,
-    "total": 77,
-    "pass": "Да",
-    "q1_sub": "A+C",
-    "comm_q1": "Q1A (8/10): ESG/VNR — хорошо определены, ограничения обоих. Q1C (7/10): Нормы, сети, STEM стереотипы.",
-    "comm_q2": "Q2A (10/15): Формула, специализация. Q2B (10/15): Декрет, нормы, модель шире занятости.",
-    "comm_q3": "Q3 (25/50): Business case: дискриминация при найме, репутация, женщины в советах. Нет normative/positive, gender-blind≠neutral."
+    "q1": 15, "q2a": 10, "q2b": 10, "q3": 25,
+    "ball": 60, "exam": 70,
+    "pres": 100, "p1": 90, "p2": 100, "act": 6,
+    "fg": 85.5, "final": 91.5,
+    "pass": "Да"
   },
-  "28d9fb4d5b1994828d4d2c6042bf71252c68ee3d8ca41632868aacdcb2820c82": {
-    "q1": 13,
-    "q2a": 10,
-    "q2b": 10,
-    "q3": 25,
-    "total": 75,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (7/10): Разрыв как факт, метрики, selection bias. Q1C (6/10): 3 канала, нет санкций/misperceived norms.",
-    "comm_q2": "Q2A (10/15): Домохозяйство, специализация. Q2B (10/15): Taste/statistical, glass ceiling, sticky floor, motherhood penalty.",
-    "comm_q3": "Q3 (25/50): Дискриминация, барьеры. Нет normative/positive, поверхностно, мало policy measures. Порядок: Q1→Q3→Q2."
+  "e8d02ea19bb636e14021d6b930c8f50518e6e78b993df85a8e9adf60e1418815": {
+    "q1": 17, "q2a": 12, "q2b": 11, "q3": 33,
+    "ball": 73, "exam": 83,
+    "pres": 100, "p1": 90, "p2": 90, "act": 1,
+    "fg": 88.2, "final": 89.2,
+    "pass": "Да"
+  },
+  "75df682816042919215a0430e3ee5ceb0082a79a7fcbe260e960857f4666fc2f": {
+    "q1": 15, "q2a": 10, "q2b": 7, "q3": 35,
+    "ball": 67, "exam": 77,
+    "pres": 100, "p1": 90, "p2": 90, "act": 2,
+    "fg": 85.8, "final": 87.8,
+    "pass": "Да"
+  },
+  "4ec72c2c899420ac8955cd8e6429079a64cff4d0dd4bbc7fa269b3e0aa791b50": {
+    "q1": 16, "q2a": 11, "q2b": 8, "q3": 32,
+    "ball": 67, "exam": 77,
+    "pres": 100, "p1": 90, "p2": 90, "act": 2,
+    "fg": 85.8, "final": 87.8,
+    "pass": "Да"
   },
   "c7bdd6cb2c328f7373437f39687918c242f77c6673d0aa946641f7a535f9aa5f": {
-    "q1": 14,
-    "q2a": 10,
-    "q2b": 9,
-    "q3": 23,
-    "total": 73,
-    "pass": "Да",
-    "q1_sub": "A+B",
-    "comm_q1": "Q1A (7/10): VNR/ESG определены. Q1B (6/10): Gap≠discrimination, эндогенные контроли. (Ответила на все 3 подвопроса — лучшие 2.)",
-    "comm_q2": "Q2A (9/15): Comparative advantage, специализация. Q2B (8/15): Unpaid labor, дискриминация (statistical, glass ceiling).",
-    "comm_q3": "Q3 (15/50): Очень короткое (~1.5 стр.). Нет механизмов, normative/positive, policy measures."
+    "q1": 14, "q2a": 10, "q2b": 9, "q3": 23,
+    "ball": 56, "exam": 66,
+    "pres": 100, "p1": 90, "p2": 100, "act": 2,
+    "fg": 83.9, "final": 85.9,
+    "pass": "Да"
+  },
+  "c95d44d0235bb35429a6d279ec99b539d4356da739fbcb28abe59d168b933e27": {
+    "q1": 14, "q2a": 10, "q2b": 9, "q3": 32,
+    "ball": 65, "exam": 75,
+    "pres": 100, "p1": 100, "p2": 70, "act": 2,
+    "fg": 82.5, "final": 84.5,
+    "pass": "Да"
+  },
+  "7ac13e71f6a83ba743c18b1a38dc5da7680985cd9d0ec151adda41df8cddb6a6": {
+    "q1": 17, "q2a": 12, "q2b": 11, "q3": 33,
+    "ball": 73, "exam": 83,
+    "pres": 100, "p1": 80, "p2": 80, "act": 1,
+    "fg": 83.2, "final": 84.2,
+    "pass": "Да"
+  },
+  "eb4a428282f04a328b7381b7c2a1c7a9034deb61fd6103d36675f9bb0b68f11b": {
+    "q1": 14, "q2a": 11, "q2b": 11, "q3": 35,
+    "ball": 71, "exam": 81,
+    "pres": 100, "p1": 80, "p2": 80, "act": 1,
+    "fg": 82.4, "final": 83.4,
+    "pass": "Да"
+  },
+  "a11d269f80371e6a7744d51ac60581f8ccd6379610968757908fdf564ecf1b5a": {
+    "q1": 16, "q2a": 10, "q2b": 11, "q3": 30,
+    "ball": 67, "exam": 77,
+    "pres": 100, "p1": 80, "p2": 80, "act": 1,
+    "fg": 80.8, "final": 81.8,
+    "pass": "Да"
+  },
+  "fac0c65b04e48c9007c5086c776e666c0b6d3aad54ef8a6bdfe5b0dcfdcce47c": {
+    "q1": 16, "q2a": 12, "q2b": 11, "q3": 35,
+    "ball": 74, "exam": 84,
+    "pres": 100, "p1": 60, "p2": 90, "act": 0,
+    "fg": 81.1, "final": 81.1,
+    "pass": "Да"
+  },
+  "de6167d54852f5308aed131916cbeb1de024ebf6dc190e138fb2ca8176810d1a": {
+    "q1": 18, "q2a": 12, "q2b": 9, "q3": 35,
+    "ball": 74, "exam": 84,
+    "pres": 100, "p1": 60, "p2": 90, "act": 0,
+    "fg": 81.1, "final": 81.1,
+    "pass": "Да"
+  },
+  "28d9fb4d5b1994828d4d2c6042bf71252c68ee3d8ca41632868aacdcb2820c82": {
+    "q1": 13, "q2a": 10, "q2b": 10, "q3": 25,
+    "ball": 58, "exam": 68,
+    "pres": 100, "p1": 100, "p2": 70, "act": 1,
+    "fg": 79.7, "final": 80.7,
+    "pass": "Да"
+  },
+  "76b0d87f6c652c3330145c4d8a362586c08357e75c2b1a722067f578bcf33bc8": {
+    "q1": 16, "q2a": 11, "q2b": 10, "q3": 33,
+    "ball": 70, "exam": 80,
+    "pres": 100, "p1": 60, "p2": 80, "act": 2,
+    "fg": 77.0, "final": 79.0,
+    "pass": "Да"
+  },
+  "ef979271b01b5968bc07e60c5e5fbe78415b154bb28b1b99005c15cfbd20e299": {
+    "q1": 17, "q2a": 11, "q2b": 9, "q3": 36,
+    "ball": 73, "exam": 83,
+    "pres": 100, "p1": 70, "p2": 60, "act": 1,
+    "fg": 75.7, "final": 76.7,
+    "pass": "Да"
+  },
+  "c37d5d081e1d27876cc5e3b55e12de5bd43b88204ebe1c9b2d8a29410a2e53c2": {
+    "q1": 16, "q2a": 11, "q2b": 11, "q3": 35,
+    "ball": 73, "exam": 83,
+    "pres": 100, "p1": 70, "p2": 60, "act": 1,
+    "fg": 75.7, "final": 76.7,
+    "pass": "Да"
+  },
+  "ada10966e50affd20907b26975af76f50457c582fcb4a7f6d18d6eeaba093378": {
+    "q1": 14, "q2a": 11, "q2b": 8, "q3": 35,
+    "ball": 68, "exam": 78,
+    "pres": 100, "p1": 60, "p2": 80, "act": 0,
+    "fg": 76.2, "final": 76.2,
+    "pass": "Да"
+  },
+  "23515ac189f39f40e103443f3b62bc975d7126a0a3a00804b03f76dad4fd1800": {
+    "q1": 16, "q2a": 10, "q2b": 9, "q3": 28,
+    "ball": 63, "exam": 73,
+    "pres": 100, "p1": 70, "p2": 60, "act": 2,
+    "fg": 71.7, "final": 73.7,
+    "pass": "Да"
+  },
+  "5db9e84fdd4897ca5ee3ac9efed12f5d26987933773083d23f7ebc9cb7dde502": {
+    "q1": 14, "q2a": 11, "q2b": 12, "q3": 30,
+    "ball": 67, "exam": 77,
+    "pres": 0, "p1": 60, "p2": 90, "act": 1,
+    "fg": 68.3, "final": 69.3,
+    "pass": "Да"
   },
   "8998ad50ab5cbb52bc3f5d56e41d12bae6e6abcfae58cf1acc781f381abfc9ff": {
-    "q1": 13,
-    "q2a": 10,
-    "q2b": 4,
-    "q3": 23,
-    "total": 67,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (7/10): Gap vs discrimination, метрики, сегрегация. Q1C (6/10): Нормы как ограничения, ~2 канала.",
-    "comm_q2": "Q2A (10/15): Семья-фирма, comparative advantage. Q2B (4/15): 3 пункта критики встроены в Q2A (нетрансферабельность, экзогенность зарплат, неравенство в профессиях), но слабо развиты.",
-    "comm_q3": "Q3 (18/50): Короткое (~2 стр.). Gneezy, Exley, MOSS/Racusin, Holzer/Neumark, Bertrand 2017. Узкий фокус на сигнале найма, нет policy measures."
+    "q1": 13, "q2a": 10, "q2b": 4, "q3": 23,
+    "ball": 50, "exam": 60,
+    "pres": 100, "p1": 60, "p2": 80, "act": 0,
+    "fg": 69.0, "final": 69.0,
+    "pass": "Да"
   },
   "0c305773526b32de61fd8d8bc51fd426e5f71bcea7b0b62b5094a21dff9441c5": {
-    "q1": 11,
-    "q2a": 7,
-    "q2b": 3,
-    "q3": 20,
-    "total": 58,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (6/10): Gap≠discrimination, метрики. Q1C (5/10): 1 канал (декрет), нет санкций/misperceived norms.",
-    "comm_q2": "Q2A (7/15): Специализация — кратко, нет формальной логики. Q2B (3/15): 1 аргумент (преимущества больше не действуют).",
-    "comm_q3": "Q3 (15/50): Очень короткое (1.5 стр.). Statistical discrimination, blind auditions. 1 механизм вместо 4."
+    "q1": 11, "q2a": 7, "q2b": 3, "q3": 20,
+    "ball": 41, "exam": 51,
+    "pres": 100, "p1": 60, "p2": 80, "act": 0,
+    "fg": 65.4, "final": 65.4,
+    "pass": "Да"
+  },
+  "fe78936127ec05c507213482e1784c5a30db3463d701ed7f4b4a3638d9e19a40": {
+    "q1": 16, "q2a": 10, "q2b": 9, "q3": 30,
+    "ball": 65, "exam": 75,
+    "pres": 100, "p1": 90, "p2": 100, "act": 2,
+    "fg": 87.5, "final": 89.5,
+    "pass": "Да"
   },
   "2c853d5fe80ae6c22689eb62fe991a61ddadfa3f0459753f6afb76fbd00556b5": {
-    "q1": 8,
-    "q2a": 6,
-    "q2b": 3,
-    "q3": 23,
-    "total": 57,
-    "pass": "Да",
-    "q1_sub": "B+C",
-    "comm_q1": "Q1B (5/10): Базовое различие, нет метрик/контролей. Q1C (3/10): 2 примера, нет санкций/misperceived norms.",
-    "comm_q2": "Q2A (6/15): Базовое описание, нет формальной модели. Q2B (3/15): Почти нет ответа.",
-    "comm_q3": "Q3 (18/50): ~3.5 стр. но почерк нечитаемый, контент — общие рассуждения без ссылок и механизмов."
+    "q1": 8, "q2a": 6, "q2b": 3, "q3": 23,
+    "ball": 40, "exam": 50,
+    "pres": 0, "p1": 60, "p2": 90, "act": 0,
+    "fg": 57.5, "final": 57.5,
+    "pass": "Да"
   },
 };
 
-const DISTRIBUTIONS = {"q1": [18, 17, 17, 17, 16, 16, 16, 16, 16, 16, 16, 15, 15, 15, 14, 14, 14, 14, 14, 13, 13, 11, 8], "q2a": [12, 12, 12, 12, 11, 11, 11, 11, 11, 11, 11, 11, 10, 10, 10, 10, 10, 10, 10, 10, 10, 7, 6], "q2b": [12, 11, 11, 11, 11, 11, 11, 10, 10, 10, 10, 9, 9, 9, 9, 9, 9, 8, 8, 7, 4, 3, 3], "q3": [36, 35, 35, 35, 35, 35, 35, 33, 33, 33, 32, 32, 32, 30, 30, 30, 28, 25, 25, 23, 23, 23, 20], "total": [91, 91, 90, 90, 90, 90, 88, 87, 85, 85, 84, 84, 84, 84, 82, 82, 80, 77, 75, 73, 67, 58, 57]};
+const DISTRIBUTIONS = {"q1": [18, 17, 17, 17, 16, 16, 16, 16, 16, 16, 16, 15, 15, 14, 14, 14, 14, 14, 13, 13, 13, 11, 8], "q2a": [12, 12, 12, 12, 11, 11, 11, 11, 11, 11, 11, 11, 10, 10, 10, 10, 10, 10, 10, 10, 10, 7, 6], "q2b": [12, 11, 11, 11, 11, 11, 11, 10, 10, 10, 10, 9, 9, 9, 9, 9, 9, 8, 8, 7, 4, 3, 3], "q3": [36, 35, 35, 35, 35, 35, 35, 33, 33, 33, 32, 32, 32, 30, 30, 30, 28, 25, 25, 23, 23, 23, 20], "total": [84, 84, 83, 83, 83, 83, 81, 80, 78, 78, 77, 77, 77, 77, 75, 75, 73, 70, 68, 66, 60, 51, 50]};
