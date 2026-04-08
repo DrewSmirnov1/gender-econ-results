@@ -148,7 +148,7 @@
 <body>
 
 <h1>Гендерная экономика — Результаты экзамена</h1>
-<p class="subtitle">Распределение баллов по всем работам (N=23)</p>
+<p class="subtitle">Распределение баллов по всем работам (N=23). Итоговый балл = сумма по вопросам + 17 (нормализация)</p>
 
 <div class="charts-grid">
   <div class="chart-card"><canvas id="chart-q1"></canvas></div>
@@ -175,7 +175,7 @@
           <th>Q2A (/15)</th>
           <th>Q2B (/15)</th>
           <th>Q3 (/50)</th>
-          <th>Итого (/100)</th>
+          <th>Итого</th>
           <th>Зачёт</th>
         </tr>
       </thead>
@@ -202,7 +202,7 @@ const CHART_CONFIGS = [
   { id: 'chart-q2a',   key: 'q2a',   label: 'Q2A', max: 15, step: 2 },
   { id: 'chart-q2b',   key: 'q2b',   label: 'Q2B', max: 15, step: 2 },
   { id: 'chart-q3',    key: 'q3',    label: 'Q3', max: 50,  step: 5 },
-  { id: 'chart-total', key: 'total', label: 'Итого', max: 100, step: 10 },
+  { id: 'chart-total', key: 'total', label: 'Итого (+17)', max: 100, step: 10 },
 ];
 
 const chartInstances = {};
