@@ -2,6 +2,7 @@ const RESULTS = {
   "7a0175984f87c35ac385336379270f11606e1915f287b69686730ab5328b7ec0": {
     "q1": 13, "q2a": 11, "q2b": 10, "q3": 32,
     "ball": 68, "exam": 78,
+    "total": 78,
     "pres": 100, "p1": 100, "p2": 70, "act": 8,
     "fg": 83.7, "final": 91.7,
     "pass": "Да"
@@ -9,6 +10,7 @@ const RESULTS = {
   "59425a29a8be4a10f6d8651a5d31663df90bd3355dfa71c288929edf66b4c69b": {
     "q1": 15, "q2a": 10, "q2b": 10, "q3": 25,
     "ball": 60, "exam": 70,
+    "total": 70,
     "pres": 100, "p1": 90, "p2": 100, "act": 6,
     "fg": 85.5, "final": 91.5,
     "pass": "Да"
@@ -16,6 +18,7 @@ const RESULTS = {
   "e8d02ea19bb636e14021d6b930c8f50518e6e78b993df85a8e9adf60e1418815": {
     "q1": 17, "q2a": 12, "q2b": 11, "q3": 33,
     "ball": 73, "exam": 83,
+    "total": 83,
     "pres": 100, "p1": 90, "p2": 90, "act": 1,
     "fg": 88.2, "final": 89.2,
     "pass": "Да"
@@ -23,6 +26,7 @@ const RESULTS = {
   "75df682816042919215a0430e3ee5ceb0082a79a7fcbe260e960857f4666fc2f": {
     "q1": 15, "q2a": 10, "q2b": 7, "q3": 35,
     "ball": 67, "exam": 77,
+    "total": 77,
     "pres": 100, "p1": 90, "p2": 90, "act": 2,
     "fg": 85.8, "final": 87.8,
     "pass": "Да"
@@ -30,6 +34,7 @@ const RESULTS = {
   "4ec72c2c899420ac8955cd8e6429079a64cff4d0dd4bbc7fa269b3e0aa791b50": {
     "q1": 16, "q2a": 11, "q2b": 8, "q3": 32,
     "ball": 67, "exam": 77,
+    "total": 77,
     "pres": 100, "p1": 90, "p2": 90, "act": 2,
     "fg": 85.8, "final": 87.8,
     "pass": "Да"
@@ -37,6 +42,7 @@ const RESULTS = {
   "c7bdd6cb2c328f7373437f39687918c242f77c6673d0aa946641f7a535f9aa5f": {
     "q1": 14, "q2a": 10, "q2b": 9, "q3": 23,
     "ball": 56, "exam": 66,
+    "total": 66,
     "pres": 100, "p1": 90, "p2": 100, "act": 2,
     "fg": 83.9, "final": 85.9,
     "pass": "Да"
@@ -44,6 +50,7 @@ const RESULTS = {
   "c95d44d0235bb35429a6d279ec99b539d4356da739fbcb28abe59d168b933e27": {
     "q1": 14, "q2a": 10, "q2b": 9, "q3": 32,
     "ball": 65, "exam": 75,
+    "total": 75,
     "pres": 100, "p1": 100, "p2": 70, "act": 2,
     "fg": 82.5, "final": 84.5,
     "pass": "Да"
@@ -51,6 +58,7 @@ const RESULTS = {
   "7ac13e71f6a83ba743c18b1a38dc5da7680985cd9d0ec151adda41df8cddb6a6": {
     "q1": 17, "q2a": 12, "q2b": 11, "q3": 33,
     "ball": 73, "exam": 83,
+    "total": 83,
     "pres": 100, "p1": 80, "p2": 80, "act": 1,
     "fg": 83.2, "final": 84.2,
     "pass": "Да"
@@ -58,6 +66,7 @@ const RESULTS = {
   "eb4a428282f04a328b7381b7c2a1c7a9034deb61fd6103d36675f9bb0b68f11b": {
     "q1": 14, "q2a": 11, "q2b": 11, "q3": 35,
     "ball": 71, "exam": 81,
+    "total": 81,
     "pres": 100, "p1": 80, "p2": 80, "act": 1,
     "fg": 82.4, "final": 83.4,
     "pass": "Да"
@@ -65,6 +74,7 @@ const RESULTS = {
   "a11d269f80371e6a7744d51ac60581f8ccd6379610968757908fdf564ecf1b5a": {
     "q1": 16, "q2a": 10, "q2b": 11, "q3": 30,
     "ball": 67, "exam": 77,
+    "total": 77,
     "pres": 100, "p1": 80, "p2": 80, "act": 1,
     "fg": 80.8, "final": 81.8,
     "pass": "Да"
@@ -72,6 +82,7 @@ const RESULTS = {
   "fac0c65b04e48c9007c5086c776e666c0b6d3aad54ef8a6bdfe5b0dcfdcce47c": {
     "q1": 16, "q2a": 12, "q2b": 11, "q3": 35,
     "ball": 74, "exam": 84,
+    "total": 84,
     "pres": 100, "p1": 60, "p2": 90, "act": 0,
     "fg": 81.1, "final": 81.1,
     "pass": "Да"
@@ -79,6 +90,7 @@ const RESULTS = {
   "de6167d54852f5308aed131916cbeb1de024ebf6dc190e138fb2ca8176810d1a": {
     "q1": 18, "q2a": 12, "q2b": 9, "q3": 35,
     "ball": 74, "exam": 84,
+    "total": 84,
     "pres": 100, "p1": 60, "p2": 90, "act": 0,
     "fg": 81.1, "final": 81.1,
     "pass": "Да"
@@ -86,6 +98,7 @@ const RESULTS = {
   "28d9fb4d5b1994828d4d2c6042bf71252c68ee3d8ca41632868aacdcb2820c82": {
     "q1": 13, "q2a": 10, "q2b": 10, "q3": 25,
     "ball": 58, "exam": 68,
+    "total": 68,
     "pres": 100, "p1": 100, "p2": 70, "act": 1,
     "fg": 79.7, "final": 80.7,
     "pass": "Да"
@@ -93,6 +106,7 @@ const RESULTS = {
   "76b0d87f6c652c3330145c4d8a362586c08357e75c2b1a722067f578bcf33bc8": {
     "q1": 16, "q2a": 11, "q2b": 10, "q3": 33,
     "ball": 70, "exam": 80,
+    "total": 80,
     "pres": 100, "p1": 60, "p2": 80, "act": 2,
     "fg": 77.0, "final": 79.0,
     "pass": "Да"
@@ -100,6 +114,7 @@ const RESULTS = {
   "ef979271b01b5968bc07e60c5e5fbe78415b154bb28b1b99005c15cfbd20e299": {
     "q1": 17, "q2a": 11, "q2b": 9, "q3": 36,
     "ball": 73, "exam": 83,
+    "total": 83,
     "pres": 100, "p1": 70, "p2": 60, "act": 1,
     "fg": 75.7, "final": 76.7,
     "pass": "Да"
@@ -107,6 +122,7 @@ const RESULTS = {
   "c37d5d081e1d27876cc5e3b55e12de5bd43b88204ebe1c9b2d8a29410a2e53c2": {
     "q1": 16, "q2a": 11, "q2b": 11, "q3": 35,
     "ball": 73, "exam": 83,
+    "total": 83,
     "pres": 100, "p1": 70, "p2": 60, "act": 1,
     "fg": 75.7, "final": 76.7,
     "pass": "Да"
@@ -114,6 +130,7 @@ const RESULTS = {
   "ada10966e50affd20907b26975af76f50457c582fcb4a7f6d18d6eeaba093378": {
     "q1": 14, "q2a": 11, "q2b": 8, "q3": 35,
     "ball": 68, "exam": 78,
+    "total": 78,
     "pres": 100, "p1": 60, "p2": 80, "act": 0,
     "fg": 76.2, "final": 76.2,
     "pass": "Да"
@@ -121,6 +138,7 @@ const RESULTS = {
   "23515ac189f39f40e103443f3b62bc975d7126a0a3a00804b03f76dad4fd1800": {
     "q1": 16, "q2a": 10, "q2b": 9, "q3": 28,
     "ball": 63, "exam": 73,
+    "total": 73,
     "pres": 100, "p1": 70, "p2": 60, "act": 2,
     "fg": 71.7, "final": 73.7,
     "pass": "Да"
@@ -128,6 +146,7 @@ const RESULTS = {
   "5db9e84fdd4897ca5ee3ac9efed12f5d26987933773083d23f7ebc9cb7dde502": {
     "q1": 14, "q2a": 11, "q2b": 12, "q3": 30,
     "ball": 67, "exam": 77,
+    "total": 77,
     "pres": 0, "p1": 60, "p2": 90, "act": 1,
     "fg": 68.3, "final": 69.3,
     "pass": "Да"
@@ -135,6 +154,7 @@ const RESULTS = {
   "8998ad50ab5cbb52bc3f5d56e41d12bae6e6abcfae58cf1acc781f381abfc9ff": {
     "q1": 13, "q2a": 10, "q2b": 4, "q3": 23,
     "ball": 50, "exam": 60,
+    "total": 60,
     "pres": 100, "p1": 60, "p2": 80, "act": 0,
     "fg": 69.0, "final": 69.0,
     "pass": "Да"
@@ -142,6 +162,7 @@ const RESULTS = {
   "0c305773526b32de61fd8d8bc51fd426e5f71bcea7b0b62b5094a21dff9441c5": {
     "q1": 11, "q2a": 7, "q2b": 3, "q3": 20,
     "ball": 41, "exam": 51,
+    "total": 51,
     "pres": 100, "p1": 60, "p2": 80, "act": 0,
     "fg": 65.4, "final": 65.4,
     "pass": "Да"
@@ -149,6 +170,7 @@ const RESULTS = {
   "fe78936127ec05c507213482e1784c5a30db3463d701ed7f4b4a3638d9e19a40": {
     "q1": 16, "q2a": 10, "q2b": 9, "q3": 30,
     "ball": 65, "exam": 75,
+    "total": 75,
     "pres": 100, "p1": 90, "p2": 100, "act": 2,
     "fg": 87.5, "final": 89.5,
     "pass": "Да"
@@ -156,6 +178,7 @@ const RESULTS = {
   "2c853d5fe80ae6c22689eb62fe991a61ddadfa3f0459753f6afb76fbd00556b5": {
     "q1": 8, "q2a": 6, "q2b": 3, "q3": 23,
     "ball": 40, "exam": 50,
+    "total": 50,
     "pres": 0, "p1": 60, "p2": 90, "act": 0,
     "fg": 57.5, "final": 57.5,
     "pass": "Да"
